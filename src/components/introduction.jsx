@@ -7,12 +7,12 @@ const Introduction = () => {
     const navigate = useNavigate();
   
     useEffect(() => {
-      // Retrieve the nickname from local storage
-      const nickname = window.localStorage.getItem("nickname");
-      if (nickname) {
-        setName(nickname); // Set the name in state
-      }
-    }, []);
+        // Retrieve the nickname from local storage
+        const nickname = window.localStorage.getItem("nickname");
+        if (nickname) {
+          setName(nickname); // Set the name in state
+        }
+      }, []);
   
     const handleContinue = () => {
       navigate("/quiz"); // Navigate to quiz component
