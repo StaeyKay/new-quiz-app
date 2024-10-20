@@ -21,7 +21,7 @@ const Introduction = () => {
   return (
     <div className="md:p-48 p-10 text-white font-bold md:text-[35px] text-[20px] overflow-hidden bg-gradient-to-r from-violet-500 to-fuchsia-500">
       <h1>Welcome to the fun quiz, {name}</h1>
-      <p>NB: Once you click on start, the first question is displayed and the timer begins. You have 10 secs to answer each question.</p>
+      <p>NB: Once you you click on start, the first question is displayed and the timer begins. You have 10 secs to answer each question.</p>
       <button onClick={handleContinue} className="bg-gradient-to-r from-violet-500 to-fuchsia-500 shadow-2xl font-bold">Continue</button>
     </div>
   );
