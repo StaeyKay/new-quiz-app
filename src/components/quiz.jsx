@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
+import { FaShareAlt } from "react-icons/fa";
+import { TfiReload } from "react-icons/tfi";
 import CountdownProgressBar from "./countdown";
+import { useNavigate } from "react-router-dom";
 
 const Quiz = () => {
-
   const questions = [
     {
       question: "In which year did Ghana gain independence?",
@@ -42,6 +44,12 @@ const Quiz = () => {
   const [quizCompleted, setQuizCompleted] = useState(false);
   const [timerKey, setTimerKey] = useState(0); // To reset the timer
 
+  const navigate = useNavigate();
+
+  const handleRetakeQuiz = () => {
+    navigate("/");
+  };
+
   // Function to handle answer selection
   const handleOptionClick = (selectedOption) => {
     // Check if selected option is correct
@@ -63,14 +71,29 @@ const Quiz = () => {
   };
 
   return (
-    <div className="md:p-48 p-10 text-white font-bold md:text-[35px] text-[20px] overflow-hidden">
+    <div className="space-y-8 md:p-48 p-10 text-white font-bold md:text-[35px] text-[20px] overflow-hidden">
       <div className="md:p-[60px] p-[30px] bg-gradient-to-r from-violet-500 to-fuchsia-500 shadow-2xl rounded-3xl">
         {quizCompleted ? (
-          <div>
-            <h3>You have completed the quiz.</h3>
-            <p>
-              Your accumulated score is {score}/{questions.length}
-            </p>
+          <div className="space-y-10">
+            <div>
+              <h3>You have completed the quiz.</h3>
+              <p>
+                Your accumulated score is {score}/{questions.length}
+              </p>
+            </div>
+            <div className="flex gap-20 justify-center">
+              <button
+                onClick={handleRetakeQuiz}
+                className="flex items-center gap-3 bg-gradient-to-r from-violet-500 to-fuchsia-500 shadow-2xl rounded-xl text-[25px] font-bold px-5 py-2"
+              >
+                Retake quiz
+                <TfiReload />
+              </button>
+              <button className="flex items-center gap-2 bg-gradient-to-r from-violet-500 to-fuchsia-500 shadow-2xl rounded-xl text-[25px] font-bold px-5 py-2">
+                Share
+                <FaShareAlt />
+              </button>
+            </div>
           </div>
         ) : (
           <div className="space-y-5">
